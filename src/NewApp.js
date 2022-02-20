@@ -16,55 +16,92 @@ import glsl from 'babel-plugin-glsl/macro'
 import { MeshStandardMaterial } from 'three';
 import WaveVertexShader from './shaders/WaveVertex.glsl'
 import Theov4 from './components/Theov4'
-
+import FullScene from './components/Theo_all_06';
+import ModelGecko from './components/Theo_noBG_07';
+import BowlStage from './components/Bg_bowl';
+import CloseIcon from '@mui/icons-material/Close';
+import styled from 'styled-components'
+import { motion } from 'framer-motion';
 
 
 
 
 export default function NewApp() {
   //debugger;
+  const [aboutStatus, setAboutStatus] = useState(false)
+
 
   return (
-    <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 3] }}>
-      <OrbitControls makeDefault/>
-      <color attach="background" args={['#191920']} />
-      
-      <ambientLight intensity={1} />
-      {/*  */}
-      
-      {/* <spotLight position={[5, 0, 5]} intensity={100} penumbra={1} angle={0.33} castShadow color="#0c8cbf" />
-      <spotLight position={[10, 10, 5]} angle={0.15} penumbra={1} intensity={100} castShadow shadow-mapSize={[2048, 2048]} color="#0c8cbf" /> */}
-      {/* <spotLight position={[0, 1, 0]} angle={0} penumbra={1} intensity={100} castShadow shadow-mapSize={[2048, 2048]} color="#0c8cbf" /> */}
-      {/* <BackdropWithShader /> */}
-    {/* <directionalLight position={[-10, 0, -5]} intensity={10} color="red" />
-      <directionalLight position={[-1, -2, -5]} intensity={10} color="#0c8cbf" /> */}
-      <fog attach="fog" args={['#191920', 0, 15]} />
-      
-    
+    <>
+      <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 3] }}>
+        {/* <OrbitControls makeDefault far={5000} near={0.001}/> */}
+        <color attach="background" args={['#191920']} />
         
-        {/* <ambientLight intensity={1.5} />
-        <Sky scale={1000} sunPosition={[2, 0.4, 10]} />
-        <spotLight angle={0.14} color="#ffd0d0" penumbra={1} position={[500, 4000, 0]} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0001} castShadow /> */}
-       
-        <Suspense fallback={null}>
-        <spotLight position={[2, 3, -5]} intensity={1} penumbra={1} angle={0.53} castShadow color="#ff4000" />
-        <spotLight position={[2, 3, 5]} intensity={1} penumbra={1} angle={0.53} castShadow color="#ff4000" />
-          <Theov4 scale={10} rotation={[0,Math.PI / 2,0]}/>
-          {/* <Gecko scale={0.1} position={[0, -0.5, 0]}/> */}
-          <CurvedPlaneGLB />
-          <Fireflies count={400} />
-          <Cloud
-            position={[0, 1.8, 0]}
-            opacity={0.08}
-            speed={0.4} // Rotation speed
-            width={10} // Width of the full cloud
-            depth={0.8} // Z-dir depth
-            segments={50} // Number of particles
-          />
+        <ambientLight intensity={1} />
+        {/*  */}
+        
+        {/* <spotLight position={[5, 0, 5]} intensity={100} penumbra={1} angle={0.33} castShadow color="#0c8cbf" />
+        <spotLight position={[10, 10, 5]} angle={0.15} penumbra={1} intensity={100} castShadow shadow-mapSize={[2048, 2048]} color="#0c8cbf" /> */}
+        {/* <spotLight position={[0, 1, 0]} angle={0} penumbra={1} intensity={100} castShadow shadow-mapSize={[2048, 2048]} color="#0c8cbf" /> */}
+        {/* <BackdropWithShader /> */}
+      {/* <directionalLight position={[-10, 0, -5]} intensity={10} color="red" />
+        <directionalLight position={[-1, -2, -5]} intensity={10} color="#0c8cbf" /> */}
+        <fog attach="fog" args={['#191920', 0, 5]} />
+        
+      
+          
+          {/* <ambientLight intensity={1.5} />
+          <Sky scale={1000} sunPosition={[2, 0.4, 10]} />
+          <spotLight angle={0.14} color="#ffd0d0" penumbra={1} position={[500, 4000, 0]} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0001} castShadow /> */}
+        
+          <Suspense fallback={null}>
+          {/* <spotLight ref={spotlight1} position={[2, 3, -5]} intensity={1} penumbra={1} angle={0.53} lookAt={[0,0,0]}  /> */}
+          {/* <spotLight position={[2, 3, 5]} intensity={1} penumbra={1} angle={0.53} lookAt={[0,0,0]} /> */}
+            {/* <Theov4 scale={10} rotation={[0,Math.PI / 2,0]}/> */}
+            {/* <Gecko scale={0.1} position={[0, -0.5, 0]}/> */}
+            {/* <CurvedPlaneGLB /> */}
+            {/* <Fireflies count={100}/>
+            <Cloud
+              position={[0, 5, 0]}
+              opacity={0.3}
+              speed={0.4} // Rotation speed
+              width={10} // Width of the full cloud
+              depth={0.2} // Z-dir depth
+              segments={50} // Number of particles
+            /> */}
+            <FullScene aboutStatus={aboutStatus} setAboutStatus={setAboutStatus} scale={10}/>
+            <BowlStage rotation={[0,Math.PI,0]} scale={10}/>
+            <ScrollControls pages={10} >
+              <ModelGecko scale={10}/>
+            </ScrollControls>
+      
+          </Suspense>
+          
+          
+      </Canvas>
+      
+      <About
+          variants={containerVariants}
+          animate={aboutStatus ? "visible" : "hidden"}>
+          <CloseWrapper>
+                    <CustomClose onClick={() => setAboutStatus(false)}/>
+          </CloseWrapper>
+          About page
+      </About>
 
-        </Suspense>
-        
-    </Canvas>
+      <FAQ
+          variants={containerVariants}
+          animate={aboutStatus ? "visible" : "hidden"}>
+          <CloseWrapper>
+                    <CustomClose onClick={() => setAboutStatus(false)}/>
+          </CloseWrapper>
+          Lorem Ipsum
+      </FAQ>
+      
+    </>
+    
+
+    
   )
 }
 
@@ -251,3 +288,49 @@ title: Littlest Tokyo */
 //useGLTF.preload('/building.gltf')
 // useGLTF.preload('/building.glb')
 // useFBX.preload('/building.fbx')
+
+// css styling for center div
+const About = styled(motion.div)`
+  position: fixed;
+  top: 25%;
+  left: 25%;
+  color: white;    
+  background: rgba(0,0,0,0.7);
+  border-radius: 15px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  width: 50vw;
+  height: 50vh;
+  z-index: 16;
+  list-style: none;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  text-align: start;
+`
+const FAQ = styled(About)`
+`
+
+
+const CustomClose = styled(CloseIcon)`
+    cursor: pointer;
+`
+const CloseWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`
+
+// handles popup animation
+const containerVariants = {
+  hidden: { 
+    scale: 0,
+    opacity: 0,
+  },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 1, type: 'spring', stiffness: 120
+    }
+  }
+}
