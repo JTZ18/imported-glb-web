@@ -13,7 +13,7 @@ export default function BowlStage({ ...props }) {
 
   const ref = useRef()
 
-  useFrame((state, delta) => (ref.current.uTime += delta))
+  // useFrame((state, delta) => (ref.current.uTime += delta))
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -24,19 +24,18 @@ export default function BowlStage({ ...props }) {
         position={[0, 10.46, 0]}
         scale={1102.3}
       >
-        <waveMaterial ref={ref} />
-        {/* <MeshReflectorMaterial
-            blur={[300, 100]}
-            resolution={2048}
-            mixBlur={1}
-            mixStrength={40}
-            roughness={1}
-            depthScale={1.2}
-            minDepthThreshold={0.4}
-            maxDepthThreshold={1.4}
-            color="#101010"
-            metalness={0.5}
-          /> */}
+        {/* <waveMaterial ref={ref} /> */}
+        <MeshReflectorMaterial
+            blur={[400, 100]}
+            resolution={1024}
+            mixBlur={0.5}
+            mixStrength={3}
+            depthScale={0.5}
+            minDepthThreshold={0.1}
+            color="#505050"
+            metalness={0.6}
+            roughness={0.8}
+          />
           {/* <meshStandardMaterial
           roughness={0}
           metalness={1}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as THREE from 'three'
 import { Suspense, useEffect, useLayoutEffect, useRef } from 'react'
 import { Canvas, extend, useFrame, useLoader, useThree } from '@react-three/fiber'
-import { ScrollControls, Sky, useScroll, useGLTF, useFBX, useAnimations, OrbitControls, useTexture, Stage, Backdrop, useMatcapTexture, MeshReflectorMaterial, Environment, ContactShadows, softShadows, shaderMaterial, Cloud } from '@react-three/drei'
+import { ScrollControls, Sky, useScroll, useGLTF, useFBX, useAnimations, OrbitControls, useTexture, Stage, Backdrop, useMatcapTexture, MeshReflectorMaterial, Environment, ContactShadows, softShadows, shaderMaterial, Cloud, Loader } from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { Bounds, GizmoHelper, GizmoViewport, Box } from '@react-three/drei'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
@@ -34,10 +34,10 @@ export default function NewApp() {
   return (
     <>
       <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 3] }}>
-        {/* <OrbitControls makeDefault far={5000} near={0.001}/> */}
+        <OrbitControls makeDefault far={5000} near={0.001}/>
         <color attach="background" args={['#191920']} />
         
-        <ambientLight intensity={1} />
+        <ambientLight intensity={1.5} />
         {/*  */}
         
         {/* <spotLight position={[5, 0, 5]} intensity={100} penumbra={1} angle={0.33} castShadow color="#0c8cbf" />
@@ -46,7 +46,7 @@ export default function NewApp() {
         {/* <BackdropWithShader /> */}
       {/* <directionalLight position={[-10, 0, -5]} intensity={10} color="red" />
         <directionalLight position={[-1, -2, -5]} intensity={10} color="#0c8cbf" /> */}
-        <fog attach="fog" args={['#191920', 0, 5]} />
+        {/* <fog attach="fog" args={['#191920', 0, 5]} /> */}
         
       
           
@@ -56,7 +56,7 @@ export default function NewApp() {
         
           <Suspense fallback={null}>
           {/* <spotLight ref={spotlight1} position={[2, 3, -5]} intensity={1} penumbra={1} angle={0.53} lookAt={[0,0,0]}  /> */}
-          {/* <spotLight position={[2, 3, 5]} intensity={1} penumbra={1} angle={0.53} lookAt={[0,0,0]} /> */}
+          {/* <spotLight position={[2, 3, 5]} intensity={10} penumbra={1} angle={0.53} lookAt={[0,0,0]} castShadow /> */}
             {/* <Theov4 scale={10} rotation={[0,Math.PI / 2,0]}/> */}
             {/* <Gecko scale={0.1} position={[0, -0.5, 0]}/> */}
             {/* <CurvedPlaneGLB /> */}
@@ -79,12 +79,13 @@ export default function NewApp() {
           
           
       </Canvas>
+      <Loader/>
       
       <About
           variants={containerVariants}
           animate={aboutStatus ? "visible" : "hidden"}>
           <CloseWrapper>
-                    <CustomClose onClick={() => setAboutStatus(false)}/>
+            <CustomClose onClick={() => setAboutStatus(false)}/>
           </CloseWrapper>
           About page
       </About>
