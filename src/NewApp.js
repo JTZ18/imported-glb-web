@@ -17,7 +17,7 @@ import { MeshStandardMaterial } from 'three';
 import WaveVertexShader from './shaders/WaveVertex.glsl'
 import Theov4 from './components/Theov4'
 import FullScene from './components/Theo_all_06';
-import ModelGecko from './components/Theo_noBG_07';
+import ModelGecko from './components/Theo_noBG_08';
 import BowlStage from './components/Bg_bowl';
 import CloseIcon from '@mui/icons-material/Close';
 import styled from 'styled-components'
@@ -34,7 +34,7 @@ export default function NewApp() {
   return (
     <>
       <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 3] }}>
-        <OrbitControls makeDefault far={5000} near={0.001}/>
+        {/* <OrbitControls makeDefault far={5000} near={0.001}/> */}
         <color attach="background" args={['#191920']} />
         
         <ambientLight intensity={1.5} />

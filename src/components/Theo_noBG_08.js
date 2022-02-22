@@ -11,11 +11,16 @@ export default function ModelGecko({ ...props }) {
   const [vec] = useState(() => new THREE.Vector3())
   const group = useRef()
   const scroll = useScroll()
-  const { nodes, materials, animations } = useGLTF('/Theo_noBG_07.glb')
+  const { nodes, materials, animations } = useGLTF('/Theo_noBG_08.glb')
   const { actions } = useAnimations(animations, group)
   console.log(scroll);
 
-  const material = new THREE.MeshMatcapMaterial({})
+  const material3 = new THREE.MeshStandardMaterial({
+    color: 0xffffff,
+    roughness: 0,
+    metalness: 0.377,
+    envMapIntensity: 0.5,
+  })
 
   const material2 = new THREE.MeshPhongMaterial({
     color:"black",
@@ -385,4 +390,4 @@ export default function ModelGecko({ ...props }) {
   )
 }
 
-useGLTF.preload('/Theo_noBG_07.glb')
+useGLTF.preload('/Theo_noBG_08.glb')
