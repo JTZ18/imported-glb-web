@@ -23,7 +23,6 @@
     "s": "^1.0.0",
     "short-uuid": "^4.2.0",
     "styled-components": "^5.3.3",
-    "three": "^0.136.0",
     "three-plain-animator": "^1.0.6",
     "threejs-meshline": "^2.0.12",
     "use-animated-sprite": "^1.0.2"
