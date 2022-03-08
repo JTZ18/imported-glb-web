@@ -7,15 +7,31 @@ import { useGLTF, MeshReflectorMaterial } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { WaveMaterial } from '../shaders/WaveMaterial'
 
+
 export default function BowlStage({ ...props }) {
   const group = useRef()
   const { nodes, materials } = useGLTF('/bg_bowl.glb')
 
   const ref = useRef()
 
-  useFrame((state, delta) => (ref.current.uTime += delta))
+  // const projection = useBoxProjectedEnv(
+  //   [0, 0, 0], // Position
+  //   [1, 1, 1] // Scale
+  // )
+  
+
+  // useFrame((state, delta) => (ref.current.uTime += delta))
   return (
     <group ref={group} {...props} dispose={null}>
+      {/* <CubeCamera frames={1}>
+        {(texture) => (
+          <mesh>
+            <planeGeometry />
+            <meshStandardMaterial envMap={texture} {...projection} />
+          </mesh>
+        )}
+      </CubeCamera> */}
+      
       <mesh
         name="pSphere1"
         castShadow
@@ -24,8 +40,8 @@ export default function BowlStage({ ...props }) {
         position={[0, 10.46, 0]}
         scale={1102.3}
       >
-        <waveMaterial ref={ref} />
-        {/* <MeshReflectorMaterial
+        {/* <waveMaterial ref={ref} /> */}
+        <MeshReflectorMaterial
             blur={[400, 100]}
             resolution={1024}
             mixBlur={0.5}
@@ -35,7 +51,7 @@ export default function BowlStage({ ...props }) {
             color="#505050"
             metalness={0.6}
             roughness={0.8}
-          /> */}
+          />
           
           {/* <meshStandardMaterial
           roughness={0}

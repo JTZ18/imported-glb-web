@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import * as THREE from 'three'
 import { Suspense, useEffect, useLayoutEffect, useRef } from 'react'
 import { Canvas, extend, useFrame, useLoader, useThree } from '@react-three/fiber'
-import { ScrollControls, Sky, useScroll, useGLTF, useFBX, useAnimations, OrbitControls, useTexture, Stage, Backdrop, useMatcapTexture, MeshReflectorMaterial, Environment, ContactShadows, softShadows, shaderMaterial, Cloud, Loader } from '@react-three/drei'
+import { ScrollControls, Sky, OrbitControls, useTexture, Stage, Backdrop, useMatcapTexture, MeshReflectorMaterial, Environment, ContactShadows, softShadows, shaderMaterial, Cloud, Loader, useBoxProjectedEnv } from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { Bounds, GizmoHelper, GizmoViewport, Box } from '@react-three/drei'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { useAnimatedSprite } from 'use-animated-sprite';
-import { PlainAnimator } from "three-plain-animator/lib/plain-animator"
 import { WaveMaterial } from './shaders/WaveMaterial'
 import './shaders/PortalMaterial'
 import './shaders/GlowingRing'
@@ -34,6 +33,7 @@ export default function NewApp() {
   return (
     <>
       <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 3] }}>
+      {/* <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} /> */}
         {/* <OrbitControls makeDefault far={5000} near={0.001}/> */}
         <color attach="background" args={['#191920']} />
         
@@ -50,9 +50,9 @@ export default function NewApp() {
         
       
           
-          {/* <ambientLight intensity={1.5} />
+          <ambientLight intensity={1.5} />
           <Sky scale={1000} sunPosition={[2, 0.4, 10]} />
-          <spotLight angle={0.14} color="#ffd0d0" penumbra={1} position={[500, 4000, 0]} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0001} castShadow /> */}
+          <spotLight angle={0.14} color="#ffd0d0" penumbra={1} position={[500, 4000, 0]} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0001} castShadow />
         
           <Suspense fallback={null}>
           {/* <spotLight ref={spotlight1} position={[2, 3, -5]} intensity={1} penumbra={1} angle={0.53} lookAt={[0,0,0]}  /> */}
@@ -60,14 +60,14 @@ export default function NewApp() {
             {/* <Theov4 scale={10} rotation={[0,Math.PI / 2,0]}/> */}
             {/* <Gecko scale={0.1} position={[0, -0.5, 0]}/> */}
             {/* <CurvedPlaneGLB /> */}
-            {/* <Fireflies count={100}/>
-            <Cloud
+            {/* <Fireflies count={100}/> */}
+            {/* <Cloud
               position={[0, 5, 0]}
               opacity={0.3}
               speed={0.4} // Rotation speed
               width={10} // Width of the full cloud
               depth={0.2} // Z-dir depth
-              segments={50} // Number of particles
+              segments={10} // Number of particles
             /> */}
             <FullScene aboutStatus={aboutStatus} setAboutStatus={setAboutStatus} scale={10}/>
             <BowlStage rotation={[0,Math.PI,0]} scale={10}/>
