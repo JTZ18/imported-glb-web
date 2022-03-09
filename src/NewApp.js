@@ -37,7 +37,7 @@ export default function NewApp() {
         {/* <OrbitControls makeDefault far={5000} near={0.001}/> */}
         <color attach="background" args={['#191920']} />
         
-        <ambientLight intensity={1.5} />
+        {/* <ambientLight intensity={1.5} /> */}
         {/*  */}
         
         {/* <spotLight position={[5, 0, 5]} intensity={100} penumbra={1} angle={0.33} castShadow color="#0c8cbf" />
@@ -51,7 +51,7 @@ export default function NewApp() {
       
           
           <ambientLight intensity={1.5} />
-          <Sky scale={1000} sunPosition={[2, 0.4, 10]} />
+          {/* <Sky scale={1000} sunPosition={[2, 0.4, 10]} /> */}
           <spotLight angle={0.14} color="#ffd0d0" penumbra={1} position={[500, 4000, 0]} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0001} castShadow />
         
           <Suspense fallback={null}>
@@ -69,11 +69,46 @@ export default function NewApp() {
               depth={0.2} // Z-dir depth
               segments={10} // Number of particles
             /> */}
+            <Stage
+              contactShadow // Optional: creates a contactshadow underneath the content (default=true)
+              shadows // Optional: lights cast shadow (default=true)// Optional: zooms the content in (default=true)
+              intensity={1} // Optional: light intensity (default=1)
+              environment="city"
+   // Optional: environment (default=city) // Optional: rembrandt (default) | portrait | upfront | soft} // Optional: recalculates control target for correctness
+            >
+
             <FullScene aboutStatus={aboutStatus} setAboutStatus={setAboutStatus} scale={10}/>
-            <BowlStage rotation={[0,Math.PI,0]} scale={10}/>
+            {/* <BowlStage rotation={[0,Math.PI,0]} scale={10}/> */}
             <ScrollControls pages={10} >
               <ModelGecko scale={10}/>
             </ScrollControls>
+            {/*<mesh rotation={[-Math.PI/2,0,0]} scale={[10,10,10]}>
+              <planeGeometry/>
+              <MeshReflectorMaterial
+                blur={[0, 0]} // Blur ground reflections (width, heigt), 0 skips blur
+                mixBlur={0} // How much blur mixes with surface roughness (default = 1)
+                mixStrength={1} // Strength of the reflections
+                mixContrast={1} // Contrast of the reflections
+                resolution={256} // Off-buffer resolution, lower=faster, higher=better quality, slower
+                mirror={0} // Mirror environment, 0 = texture colors, 1 = pick up env colors
+                depthScale={0} // Scale the depth factor (0 = no depth, default = 0)
+                minDepthThreshold={0.9} // Lower edge for the depthTexture interpolation (default = 0)
+                maxDepthThreshold={1} // Upper edge for the depthTexture interpolation (default = 0)
+                depthToBlurRatioBias={0.25} // Adds a bias factor to the depthTexture before calculating the blur amount [blurFactor = blurTexture * (depthTexture + bias)]. It accepts values between 0 and 1, default is 0.25. An amount > 0 of bias makes sure that the blurTexture is not too sharp because of the multiplication with the depthTexture
+                distortion={1} // Amount of distortion based on the distortionMap texture
+                 // The red channel of this texture is used as the distortion map. Default is null
+                debug={0} /* Depending on the assigned value, one of the following channels is shown:
+                  0 = no debug
+                  1 = depth channel
+                  2 = base channel
+                  3 = distortion channel
+                  4 = lod channel (based on the roughness)
+                
+              reflectorOffset={0.2}
+              color={"black"} // Offsets the virtual camera that projects the reflection. Useful when the reflective surface is some distance from the object's origin (default = 0)
+              />
+            </mesh>*/}
+            </Stage>
       
           </Suspense>
           

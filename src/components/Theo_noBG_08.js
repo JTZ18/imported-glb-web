@@ -365,7 +365,7 @@ export default function ModelGecko({ ...props }) {
         name="camera2"
         makeDefault={true}
         far={10000}
-        near={0.001}
+        near={0.0001}
         fov={81.2}
         position={[-0.34, 0.1, 0.02]}
         rotation={[-Math.PI / 2, -0.82, -Math.PI / 2]}
