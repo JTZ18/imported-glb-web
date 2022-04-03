@@ -40,7 +40,7 @@ export default function FullScene({ ...props }) {
   
   let angle = 0.1
   useFrame((state, delta) => {
-    angle -= 0.01
+    angle -= 0.005
     spotlight1.current.position.x = 2*Math.sin(angle)
     spotlight1.current.position.y = 2*Math.cos(angle)
     spotlight2.current.position.x = 2*Math.cos(angle)
@@ -60,7 +60,7 @@ export default function FullScene({ ...props }) {
     <group ref={group} {...props} dispose={null}>
       <spotLight ref={spotlight1} position={[0,0.25,0.5]} intensity={1} penumbra={1} angle={0.53} lookAt={[0,0,0]} color="#FEDD00" />
       <spotLight ref={spotlight2} position={[0,0.25,-0.5]} intensity={1} penumbra={1} angle={0.53} lookAt={[0,0,0]} color="#FEDD00" />
-      <spotLight ref={spotlight3} position={[0.5,0.1,0.5]} intensity={2.5} penumbra={1} angle={0.35} color="#FEDD00"/>
+      {/* <spotLight ref={spotlight3} position={[0.5,0.1,0.5]} intensity={2.5} penumbra={1} angle={0.35} color="#FEDD00"/> */}
       {/* <directionalLight ref={directionalLight} castShadow lookAt={[0,0,0]} intensity={1} position={[0.2,2,0.2]}/> */}
       {/* <rectAreaLight position={[-0.1,0.5,0.1]} width={1} height={1} intensity={50} lookAt={[0,0,0]} rotation={[0,Math.PI,0]}/> */}
       <Html scale={0.01} rotation={[0, -3*Math.PI / 4 + 0.5, 0]} position={[-0.26,0.1,0.05]} transform occlude>

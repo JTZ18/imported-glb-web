@@ -14,7 +14,7 @@ export default function Fireflies({ count = 40 }) {
     }
     return [positionArray, scaleArray]
   }, [count])
-  useFrame((state, delta) => (shader.current.time += delta / 2))
+  useFrame((state, delta) => (shader.current.time += delta * 2 ))
   return (
     <points key={count}>
       <bufferGeometry>

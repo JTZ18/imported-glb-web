@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as THREE from 'three'
 import { Suspense, useEffect, useLayoutEffect, useRef } from 'react'
 import { Canvas, extend, useFrame, useLoader, useThree } from '@react-three/fiber'
-import { ScrollControls, CameraShake, Sky, Stars, Shadow, SpotLight, OrbitControls, useTexture, Stage, Backdrop, useMatcapTexture, MeshReflectorMaterial, Environment, ContactShadows, softShadows, shaderMaterial, Cloud, Loader, useBoxProjectedEnv } from '@react-three/drei'
+import { ScrollControls, CameraShake, Sky, Shadow, SpotLight, OrbitControls, useDepthBuffer, useTexture, Stage, Backdrop, useMatcapTexture, MeshReflectorMaterial, Environment, ContactShadows, softShadows, shaderMaterial, Cloud, Loader, useBoxProjectedEnv, Points, PointMaterial } from '@react-three/drei'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import { Bounds, GizmoHelper, GizmoViewport, Box } from '@react-three/drei'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
@@ -29,19 +29,17 @@ export default function NewApp() {
   //debugger;
   const [aboutStatus, setAboutStatus] = useState(false)
 
-
   return (
     <>
       <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 3] }} gl={{ alpha: false }}>
       {/* <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} /> */}
-        {/* <OrbitControls makeDefault far={5000} near={0.001}/> */}
-        <color attach="background" args={['#191920']} />
+        <OrbitControls makeDefault far={5000} near={0.001}/>
 
-        <fog attach="fog" args={['#17171b', 5, 5]} /> // from train example
+        <fog attach="fog" args={['#17171b', 0, 7]} /> // from train example
         <color attach="background" args={['#17171b']} />
-        {/* <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
+        <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
           <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} />
-        </directionalLight> */}
+        </directionalLight>
         
         {/* <ambientLight intensity={1.5} /> */}
         {/*  */}
@@ -66,13 +64,13 @@ export default function NewApp() {
             {/* <Theov4 scale={10} rotation={[0,Math.PI / 2,0]}/> */}
             {/* <Gecko scale={0.1} position={[0, -0.5, 0]}/> */}
             {/* <CurvedPlaneGLB /> */}
-            {/* <Fireflies count={100}/> */}
+            <Fireflies count={100}/>
             {/* <Cloud
               position={[0, 5, 0]}
               opacity={0.3}
               speed={0.4} // Rotation speed
               width={10} // Width of the full cloud
-              depth={0.2} // Z-dir depth
+              depth={1} // Z-dir depth
               segments={10} // Number of particles
             /> */}
             {/* <Stage
@@ -84,7 +82,7 @@ export default function NewApp() {
             > */}
 
             <FullScene aboutStatus={aboutStatus} setAboutStatus={setAboutStatus} scale={10}/>
-            <spotLight position={[0, 3, 0]} intensity={1} penumbra={1} angle={0.53} lookAt={[0,0,0]}  />
+            <spotLight castShadow position={[0, 3, 0]} intensity={10} penumbra={1} angle={0.53} lookAt={[0,0,0]} distance={10} attenuation={1} anglePower={2}  />
             {/* <SpotLight
               distance={5}
               angle={0.15}
@@ -147,8 +145,8 @@ export default function NewApp() {
             </mesh>*/}
             {/* </Stage> */}
 
-            <mesh position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]}>
-            <planeGeometry args={[50, 50]} />
+            <mesh position={[0, 0.02, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+            <planeGeometry args={[200, 200]} />
             <MeshReflectorMaterial
               blur={[100, 100]}
               resolution={1024}
@@ -156,9 +154,10 @@ export default function NewApp() {
               mixStrength={20}
               depthScale={1}
               minDepthThreshold={0.2}
-              color="#151515"
+              color="#09090a"
               metalness={0.6}
               roughness={1}
+              fog={true}
             />
             </mesh>
             <Environment preset="dawn" />
