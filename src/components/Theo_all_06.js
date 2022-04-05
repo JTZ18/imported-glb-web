@@ -346,7 +346,7 @@ export default function FullScene({ ...props }) {
         name="camera2"
         makeDefault={false}
         far={50}
-        near={0.01}
+        near={0.05}
         fov={81.2}
         position={[0.04, 0.08, 0.36]}
         rotation={[0, 0.11, 0]}

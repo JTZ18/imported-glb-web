@@ -33,7 +33,7 @@ export default function NewApp() {
     <>
       <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 3] }} gl={{ alpha: false }}>
       {/* <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} /> */}
-        <OrbitControls makeDefault far={5000} near={0.001}/>
+        {/* <OrbitControls makeDefault far={50} near={0.01}/> */}
 
         <fog attach="fog" args={['#17171b', 0, 7]} /> // from train example
         <color attach="background" args={['#17171b']} />
