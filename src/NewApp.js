@@ -35,8 +35,8 @@ export default function NewApp() {
       {/* <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} /> */}
         {/* <OrbitControls makeDefault far={50} near={0.01}/> */}
 
-        <fog attach="fog" args={['#17171b', 0, 7]} /> // from train example
-        <color attach="background" args={['#17171b']} />
+        <fog attach="fog" args={['#1E160A', 0, 7]} /> // from train example
+        <color attach="background" args={['#1E160A']} />
         <directionalLight castShadow intensity={2} position={[10, 6, 6]} shadow-mapSize={[1024, 1024]}>
           <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} />
         </directionalLight>
@@ -56,7 +56,7 @@ export default function NewApp() {
           
           <ambientLight intensity={1.5} />
           {/* <Sky scale={1000} sunPosition={[2, 0.4, 10]} /> */}
-          <spotLight angle={0.14} color="#ffd0d0" penumbra={1} position={[500, 4000, 0]} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0001} castShadow />
+          <spotLight angle={0.14} color="#FFF7CF" penumbra={1} position={[500, 4000, 0]} shadow-mapSize={[2048, 2048]} shadow-bias={-0.0001} castShadow />
         
           <Suspense fallback={null}>
           {/* <spotLight ref={spotlight1} position={[2, 3, -5]} intensity={1} penumbra={1} angle={0.53} lookAt={[0,0,0]}  /> */}
@@ -82,7 +82,7 @@ export default function NewApp() {
             > */}
 
             <FullScene aboutStatus={aboutStatus} setAboutStatus={setAboutStatus} scale={10}/>
-            <spotLight castShadow position={[0, 3, 0]} intensity={10} penumbra={1} angle={0.53} lookAt={[0,0,0]} distance={10} attenuation={1} anglePower={2}  />
+            <spotLight castShadow position={[0, 3, 0]} intensity={10} penumbra={1} angle={0.53} lookAt={[0,0,0]} distance={10} attenuation={1} anglePower={2} color={'#FFF7CF'}  />
             {/* <SpotLight
               distance={5}
               angle={0.15}
@@ -154,7 +154,7 @@ export default function NewApp() {
               mixStrength={20}
               depthScale={1}
               minDepthThreshold={0.2}
-              color="#09090a"
+              color="#120D05"
               metalness={0.6}
               roughness={1}
               fog={true}

@@ -6,7 +6,7 @@ export default class FireflyMaterial extends THREE.ShaderMaterial {
     super({
       uniforms: {
         uTime: { value: 0 },
-        uColor: { value: new THREE.Color('white') },
+        uColor: { value: new THREE.Color('#FFE575') },
         uPixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
         uSize: { value: 150 },
         fogColor: { value: new THREE.Color(1,1,1)},
