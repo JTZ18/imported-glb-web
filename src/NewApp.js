@@ -21,6 +21,8 @@ import BowlStage from './components/Bg_bowl';
 import CloseIcon from '@mui/icons-material/Close';
 import styled from 'styled-components'
 import { motion } from 'framer-motion';
+import './style_james.css'
+import Nickson from './components/Nickson'
 
 
 
@@ -28,6 +30,13 @@ import { motion } from 'framer-motion';
 export default function NewApp() {
   //debugger;
   const [aboutStatus, setAboutStatus] = useState(false)
+  const [faqStatus, setFaqStatus] = useState(false)
+  const [teamStatus, setTeamStatus] = useState(false)
+  const [roadmapStatus, setRoadmapStatus] = useState(false)
+
+  useEffect(() => {
+
+  }, [aboutStatus])
 
   return (
     <>
@@ -81,7 +90,7 @@ export default function NewApp() {
    // Optional: environment (default=city) // Optional: rembrandt (default) | portrait | upfront | soft} // Optional: recalculates control target for correctness
             > */}
 
-            <FullScene aboutStatus={aboutStatus} setAboutStatus={setAboutStatus} scale={10}/>
+            <FullScene aboutStatus={aboutStatus} setAboutStatus={setAboutStatus} faqStatus={faqStatus} setFaqStatus={setFaqStatus} teamStatus={teamStatus} setTeamStatus={setTeamStatus} roadmapStatus={roadmapStatus} setRoadmapStatus={setRoadmapStatus} scale={10}/>
             <spotLight castShadow position={[0, 3, 0]} intensity={10} penumbra={1} angle={0.53} lookAt={[0,0,0]} distance={10} attenuation={1} anglePower={2} color={'#FFF7CF'}  />
             {/* <SpotLight
               distance={5}
@@ -175,17 +184,213 @@ export default function NewApp() {
           <CloseWrapper>
             <CustomClose onClick={() => setAboutStatus(false)}/>
           </CloseWrapper>
-          About page
+          <div class="modal-wrapper" id="about">
+          <section class="modal-window">
+            <header class="modal-header">
+              <h3>About Tectonic Tales</h3>
+            </header>
+            <p>Tectonic Tales is proud to present Tectonic Blaze, a comedic action adventure following Theo, a gecko, and his trusty sidekick Sam, a frog, as they take on the precarious mission of delivering high value packages across a futuristic yet archaic landscape of cyberpunk technology, ancient alchemy and esoteric mysticism.</p>
+            <p>Conceived by Academy Award winning VFX artist Nickson Fong, and utilizing the team behind his award winning feature film directorial debut BASHIRA, Tectonic Blaze promises to push the boundaries of animation.  2D, 3D, stop motion and other styles of animation will give a unique, colorful and varied look.</p>
+            <p>The world of Tectonic Blaze is vast and eclectic, incorporating numerous cities, villages and hidden realms.  Think of the worlds of ZOOTOPIA and WRECK-IT-RALPH, or The Oasis in READY PLAYER ONE where a kaleidoscope of pop culture thrives and you’ll get an idea of what the world of Tectonic Blaze has to offer.  From an ancient Chinatown to a cyber future Tokyo, from a western cowboy world in a desert to a Polynesian archipelago in a lake, from a mystical world of Yokai to a forbidden dominion with unspeakable horrors, our heroes must traverse these wide ranging lands to complete their missions.</p>
+            <p>At the heart of this series is The Delivery Service, but this is no ordinary post office or FedEx.  This is the Special Forces of delivery.  Members are born into this secret society like ASSASSINS CREED and trained at a young age to become elite carriers.  The packages are high value assets where lives are at stake, sometimes even the fate of the world.  There are harsh consequences if these packages are not delivered on time and there is no room for error.  Like THE TRANSPORTER, what is contained in the packages is never revealed and no questions are asked.  The job is to make the delivery with no excuses.</p>
+            <p>One key piece of equipment for Delivery Service carriers is a high tech machine that transforms them into various costumes so they can blend in with whatever world they must journey through.  There is also a smaller version of this technology like a wrist watch, but its efficacy is less reliable.  Sometimes our heroes will be forced to improvise, resulting in comedic mishaps.  Think of Peter Sellers’ disguises in the PINK PANTHER films or Chevy Chase in FLETCH.</p>
+            <p>Driving the series are lovable best friends Theo and Sam as they struggle to gain respect as carriers among their peers.  No one takes them seriously, so they are always trying to prove themselves, often with disastrous and hilarious results.  Their world is populated with an eclectic array of animals, insects and mysterious cryptids, many of them with a strong sense of hip and popular fashion trends.</p>
+            <p>Tectonic Blaze will be packed with action, featuring different styles of martial arts.  Kung fu, karate, Muay Thai, boxing, MMA, even professional wrestling will all be on display.  Influences range from ENTER THE DRAGON, BLOODSPORT and FIGHT CLUB.  Fight sequences will combine grace with grit, but also a dose of humor in the vein of Jackie Chan and Sammo Hung.</p>
+            <p>We invite you to participate in our project as we shape Tectonic Blaze into a one of a kind, interactive creation.</p>
+          </section>
+        </div>
       </About>
 
       <FAQ
           variants={containerVariants}
-          animate={aboutStatus ? "visible" : "hidden"}>
+          animate={faqStatus ? "visible" : "hidden"}>
           <CloseWrapper>
-                    <CustomClose onClick={() => setAboutStatus(false)}/>
+                    <CustomClose onClick={() => setFaqStatus(false)}/>
           </CloseWrapper>
-          Lorem Ipsum
+          <div class="modal-wrapper" id="faq">
+          <section class="modal-window">
+            <header class="modal-header">
+              <h3>FAQ</h3>
+            </header>
+            <h4>What is Kung Fu Gecko and the inspiration behind it?</h4>
+            <p>
+              Kung Fu Gecko is a short animated feature about a gecko and a frog. Kung Fu Gecko (KFG) was inspired by the real-world geckos of my childhood.
+            </p>
+            <p>
+              When I was a kid, I was always fascinated by the geckos around me. I admired them because they could hang upside down and scale the walls so fast. They basically had the same superhero powers as Spider-man, minus the web-slinging of course, but in real-life!
+            </p>
+            <p>
+              I grew up with the comic books and kung fu movies of the 70’s and 80’s. Spider-man was one of my favorites during those days. Every time I would see Spider-man climbing up walls and swinging from buildings it reminded me of the geckos hanging upside down on my living room ceiling right next to the old fluorescent tube.
+              Fluorescent tube lights were common in Singapore during my childhood. They were everywhere and before a heavy rain in the evenings, the most interesting things would happen around these bright lights. Huge swarms of flies and other insects would all gather around and fight for the light.
+              The large swarms attracted all the nearby geckos, both big and small. They would come out of nowhere and start catching these flies with their sticky tongues. Some would leap from wall to wall to catch these flies in mid-air around the light. Seeing these geckos in action made me think of it as some kind of gecko kungfu feeding frenzy. It was very exciting to watch.
+              For me, the geckos are amazing little creatures that I could spend hours watching as they feed around the lights.
+              The first time I asked my grandparents what geckos were, they said that they are the protectors of the house and not to harm them. They told me that the geckos help us by eating all kinds of bugs, especially mosquitos and flies.
+            </p>
+            <p>
+              They have many names in Cantonese and Mandarin, but one of the names that really sparked a deeper interest for these creatures is 守宮 - in direct translation- “the protector or the guardian of the palace.” When you break up the two words.
+            </p>
+            <p>
+              守 (Shou) Means Protector or Guardian<br/>
+              宮 (Gong) Means Palace
+            </p>
+            <p>
+              I thought to myself, “OMG! That is so cool! What a fantastic name.” Images and stories started brewing in my mind about these little creatures. They would be dressed in armor and using cool weapons as they flew and jumped around the rooftops of the imperial palace. They were just like the warriors in Chinese kung fu movies. 
+              My fascination for geckos started at a young age and it was just about the same time that I had developed a keen interest in movie effects like stop-motion animation and other visual effects. The 7th Voyage of Sinbad (1958) was a film that really changed my life. I vividly remember that my primary school teacher showed the film on a large projector to the class and I was blown away! On that very day, I was bitten by a moviemaking bug. The special effects in Sinbad were amazing and the technology at the time was groundbreaking. The special effects master was Ray Harryhausen. He and his team created all the creature action special effects in the Sinbad movies. This was well before the age of the Internet so there were only books and magazines that featured his work. I remember spending hours at the bookstore reading about how he created special effects.
+            </p>
+
+            <h4>What are my dreams for the future of Kung Fu Gecko?</h4>
+            <p>
+              My dream is to turn Kung Fu Gecko into an animated series and feature. There is so much power in storytelling and I believe that through these little creatures we can take the audience to places they have never seen before, intriguing stories and lots of kung fu action.  Storytelling with animation gives so much power to the story because there are no boundaries.
+            </p>
+            <p>
+              Animation is the most fluid of all mediums and the possibilities are endless. In animation a character can be anywhere, doing anything, at any point in time. These stories have no humans which is a good thing. The real world is full of humans already, why should our content be the same? I think that all of us could use an entertaining break from reality by watching some fun fast fighting geckos. It would be a dream come true to turn Kung Fu Gecko into something that gives an audience some comfort and escape from the challenges and troubles of the real world.
+            </p>
+            <h4>What happened to Kung Fu Gecko?</h4>
+            <p>
+              Kung Fu Gecko was started in 2004 when Nickson returned from the USA to Singapore to start his animation company.
+              Kung Fu Gecko was way ahead of the curve in Asia. Funding for animated features was very premature at the time as very few investment companies and investors understood the business model. The cost of producing animation was very high; Hardware / Software costs were many times higher than costs today and lack of experienced talent was a major factor. Training programs were time consuming and recruiting experienced instructors from abroad was difficult and expensive. All the above are major factors that slowed the development of Kung Fu Gecko.
+            </p>
+
+            <h4>Has Kung Fu Gecko ever been officially released?</h4>
+            <p>The development of Kung Fu Gecko has always been ongoing, currently, there are special opportunities to accelerate the process and complete the project with a diverse and global premise. </p>
+            <p>Egg Story has been in the animation business for almost 20 years. It has completed numerous large scale projects, gained invaluable experience, and has developed a network of partners throughout the industry.</p>
+            <p>Egg Story recently completed Bashira, a feature film that combines the horror and fantasy genres. It’s a live-action movie that is heavy in animation and visual effects. It was created by Egg Story Studios from scratch. From the story, screenplay, pre-production to principal photography, as well as post-production, to putting the film in the can, every single step of the process was managed by Egg Story.</p>
+            <p>In Bashira, there were more than 1,300 VFX shots, all of which were designed and managed by Egg Story.</p>
+            <p>Bashira was recently awarded -Best Animated Feature by the  “Another Hole in the Head” International Film festival based in San Francisco. The festival has been running for almost 20 years.</p>
+            <p>The completion of Bashira and the quality of the visual effects were on par with many big budget Hollywood films at a fraction of the cost.  Bashira also won Best VFX at the Buenos Aires Rojo Sangre horror film festival.</p>
+
+            <h4>So how is Kung Fu Gecko NFTs going to change all that?</h4>
+            <p>Blockchain technology is changing the world right before our eyes. Kung Fu Gecko NFT will be one of the many animated projects that would benefit from this technology.</p>
+            <p>Our new NFT project TectonicTales (TT) is a spin-off from Kung Fu Gecko. The project TectonicTales is about building and rewarding the community.</p>
+            <p>Kung Fu Gecko has been in the making for a long time and many creative minds have contributed to the stories, characters, and animation. TectonicTales is an expansion that rests on a strong foundation of these creative ideas and with the help of the Blockchain Technology we hope to bring together like minded creative individuals and teams with the interest of storytelling and animation to contribute to the process of making and shaping the project. It is important to us that we share the rewards of all our efforts with our community of supporters and achieve our dreams without any compromises.</p>
+            <p>The world of TectonicTales encompasses many different realms, past, present, future and many diverse cultures, subcultures, and music all amalgamated in one multiverse.</p>
+            <p>Our very first animated project under the umbrella of TectonicTales is TectonicBlaze (TBZ). It’s a kung fu action animated series about a gecko and a frog trying to get ahead in a world of creatures living in a mysterious and challenging multiverse.</p>
+            <p>In TectonicBlaze there is an opportunity for anyone in any culture or ethenic background to contribute their stories, designs, art, music, or business skills to help us complete our projects. Collectively, these contributions will help us in building a cohesive community with common visions and goals.</p>
+            <p>For example, an artist that joins our TectonicBlaze community will get to present his/her work to the community during the making of the project. The community will then vote on which designs should be implemented into the project. The selected designs will be converted into NFT’s and the artists will be rewarded through the royalties of the NFT.</p>
+            <p>The same goes for Music and other types of contributions.</p>
+            <p>For example, an animation supervisor or producer with many years of experience in the animation industry joins the TectonicBlaze community and assists in the management of the project.  They will benefit from working with the DAO. Small communities will be created within the DAO with special interest like the Character Animation community. He/She will manage animators in this special community and be rewarded through points.</p>
+            <p>The blockchain technology has literally changed the way animation is produced and how the team can have ownership and rewards.</p>
+          </section>
+        </div>
       </FAQ>
+
+      <Team
+          variants={containerVariants}
+          animate={teamStatus ? "visible" : "hidden"}>
+          <CloseWrapper>
+                    <CustomClose onClick={() => setTeamStatus(false)}/>
+          </CloseWrapper>
+          <div class="modal-wrapper" id="team">
+          <section class="modal-window">
+            <header class="modal-header">
+              <h3>The Team & Partners</h3>
+            </header>
+            <h4>About EggStory & eyecon</h4>
+            <p>EggStory Studio is the exploration vessel of storytelling and adventure. eyecon Studio is the pillar of science and technology.</p>
+            <p>Mix the both and we are a fusion clockwork of ideas that illuminate uncharted mindscapes, pioneering dedication and core values to deliver our audience the unimaginable reality. Hybrid cross-cultural narratives are our fuel, our adrenaline and even more … our fearless pursuit in creating modern and traditional immersive stories and content.</p>
+            <h4>The Team</h4>
+
+            <div class="team_member_div">
+              <img src="img/nickson.png" class="team_pic"/>
+              <br/>
+              <a href="#" class="modal-trigger team_member_link" data-modal-id="nickson" onClick={Nickson}>Nickson Fong</a>
+              <p class="team_member_title">CEO</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/james.png" class="team_pic"/>
+              <br/>
+              <span class="team_member_link">James Blackburn</span>
+              <p class="team_member_title">CTO</p>
+            </div>
+
+            <div class="team_member_div">
+              <img src="img/veronica.png" class="team_pic"/>
+              <br/>
+              <span class="team_member_link">Veronica Ng</span>
+              <p class="team_member_title">CFO</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/eko.png" class="team_pic"/>
+              <br/>
+              <span class="team_member_link">Eko Nonoyama</span>
+              <p class="team_member_title">Writer / Costume Designer</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/todd.png" class="team_pic"/>
+              <br/>
+              <a href="#" class="modal-trigger team_member_link" data-modal-id="todd">Todd Ocvirk</a>
+              <p class="team_member_title">Writer</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/david.png" class="team_pic"/>
+              <br/>
+              <a href="#" class="modal-trigger team_member_link" data-modal-id="david">David Sisko</a>
+              <p class="team_member_title">Music Producer, Composer, Mixer</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/steve.png" class="team_pic"/>
+              <br/>
+              <a href="#" class="modal-trigger team_member_link" data-modal-id="steve">Steven Krone</a>
+              <p class="team_member_title">Film Producer, Lawyer</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/daniel.png" class="team_pic"/>
+              <br/>
+              <span class="team_member_link">Daniel Cheng</span>
+              <p class="team_member_title">Producer</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/sk.png" class="team_pic"/>
+              <br/>
+              <span class="team_member_link">Shi Kian</span>
+              <p class="team_member_title">Art Director</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/callen.png" class="team_pic"/>
+              <br/>
+              <span class="team_member_link">Callen Desmond</span>
+              <p class="team_member_title">Senior Concept Artist</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/ted.png" class="team_pic"/>
+              <br/>
+              <span class="team_member_link">Ted Godwin</span>
+              <p class="team_member_title">Producer, VFX Post / Supervisor</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/glenn.png" class="team_pic"/>
+              <br/>
+              <span class="team_member_link">Glenn James</span>
+              <p class="team_member_title">Narrator & Sound Designer</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/jos.png" class="team_pic"/>
+              <br/>
+              <span class="team_member_link">Jos Barteling</span>
+              <p class="team_member_title">Sys. Admin</p>
+            </div>
+            <div class="team_member_div">
+              <img src="img/peter.png" class="team_pic"/>
+              <br/>
+              <span class="team_member_link">Peter Yomsiri</span>
+              <p class="team_member_title">Assistant Editor</p>
+            </div>
+
+            <h4>Partners: SEEDverse</h4>
+            <p>SEEDverse is a company that provides NFT and digital solutions for creators and SMEs seeking to transform their businesses. It is an investee company of S.E.E.D Ventures, a venture capital fund management company that is based in Singapore.</p>
+            <br/>
+          </section>
+        </div>
+      </Team>
+
+      <Roadmap
+          variants={containerVariants}
+          animate={roadmapStatus ? "visible" : "hidden"}>
+          <CloseWrapper>
+                    <CustomClose onClick={() => setRoadmapStatus(false)}/>
+          </CloseWrapper>
+          Roadmap Page.
+      </Roadmap>
       
     </>
     
@@ -381,28 +586,39 @@ title: Littlest Tokyo */
 // css styling for center div
 const About = styled(motion.div)`
   position: fixed;
-  top: 25%;
-  left: 25%;
+  top: 0%;
+  left: 0%;
   color: white;    
   background: rgba(0,0,0,0.7);
-  border-radius: 15px;
   backdrop-filter: blur(4px);
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-  width: 50vw;
-  height: 50vh;
+  width: 100vw;
+  height: 100vh;
   z-index: 16;
   list-style: none;
   padding: 20px;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   text-align: start;
+  z-index: 10;
 `
 const FAQ = styled(About)`
+`
+
+const Team = styled(About)`
+  img { 
+    border-radius: 50%;
+  }
+`
+
+const Roadmap = styled(About)`
 `
 
 
 const CustomClose = styled(CloseIcon)`
     cursor: pointer;
+    z-index: 20;
 `
 const CloseWrapper = styled.div`
     display: flex;

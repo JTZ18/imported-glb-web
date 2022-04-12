@@ -16,6 +16,14 @@ body,
 
 #root {
   overflow: auto;
+--black: #111213ff;
+--dark-grey: #212224ff;
+--silver: #a1a1a1ff;
+--white: #ffffff;
+--off-white: #d3d3d3;
+--dark-blue: #2f71e8ff;
+--light-blue: #29b9f0ff;
+    
 }
 
 .scroll {
