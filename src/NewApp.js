@@ -23,6 +23,9 @@ import styled from 'styled-components'
 import { motion } from 'framer-motion';
 import './style_james.css'
 import Nickson from './components/Nickson'
+import Steven from './components/Steven'
+import Todd from './components/Todd'
+import David from './components/David'
 
 
 
@@ -34,6 +37,11 @@ export default function NewApp() {
   const [teamStatus, setTeamStatus] = useState(false)
   const [roadmapStatus, setRoadmapStatus] = useState(false)
 
+  const [nicksonStatus, setNicksonStatus] = useState(false)
+  const [stevenStatus, setStevenStatus] = useState(false)
+  const [toddStatus, setToddStatus] = useState(false)
+  const [davidStatus, setDavidStatus] = useState(false)
+
   useEffect(() => {
 
   }, [aboutStatus])
@@ -42,7 +50,7 @@ export default function NewApp() {
     <>
       <Canvas dpr={[1, 2]} shadows camera={{ position: [0, 0, 3] }} gl={{ alpha: false }}>
       {/* <orthographicCamera attach="shadow-camera" left={-20} right={20} top={20} bottom={-20} /> */}
-        {/* <OrbitControls makeDefault far={50} near={0.01}/> */}
+        <OrbitControls makeDefault far={50} near={0.01}/>
 
         <fog attach="fog" args={['#1E160A', 0, 7]} /> // from train example
         <color attach="background" args={['#1E160A']} />
@@ -277,6 +285,10 @@ export default function NewApp() {
       <Team
           variants={containerVariants}
           animate={teamStatus ? "visible" : "hidden"}>
+          {nicksonStatus && <Nickson closeNickson={setNicksonStatus} />}
+          {stevenStatus && <Steven closeSteven={setStevenStatus} />}
+          {toddStatus && <Todd closeTodd={setToddStatus} />}
+          {davidStatus && <David closeDavid={setDavidStatus} />}
           <CloseWrapper>
                     <CustomClose onClick={() => setTeamStatus(false)}/>
           </CloseWrapper>
@@ -293,7 +305,7 @@ export default function NewApp() {
             <div class="team_member_div">
               <img src="img/nickson.png" class="team_pic"/>
               <br/>
-              <a href="#" class="modal-trigger team_member_link" data-modal-id="nickson" onClick={Nickson}>Nickson Fong</a>
+              <a href="#" class="modal-trigger team_member_link" data-modal-id="nickson" onClick={() => setNicksonStatus(true)}>Nickson Fong</a>
               <p class="team_member_title">CEO</p>
             </div>
             <div class="team_member_div">
@@ -318,19 +330,19 @@ export default function NewApp() {
             <div class="team_member_div">
               <img src="img/todd.png" class="team_pic"/>
               <br/>
-              <a href="#" class="modal-trigger team_member_link" data-modal-id="todd">Todd Ocvirk</a>
+              <a href="#" class="modal-trigger team_member_link" data-modal-id="todd" onClick={() => setToddStatus(true)}>Todd Ocvirk</a>
               <p class="team_member_title">Writer</p>
             </div>
             <div class="team_member_div">
               <img src="img/david.png" class="team_pic"/>
               <br/>
-              <a href="#" class="modal-trigger team_member_link" data-modal-id="david">David Sisko</a>
+              <a href="#" class="modal-trigger team_member_link" data-modal-id="david" onClick={() => setDavidStatus(true)}>David Sisko</a>
               <p class="team_member_title">Music Producer, Composer, Mixer</p>
             </div>
             <div class="team_member_div">
               <img src="img/steve.png" class="team_pic"/>
               <br/>
-              <a href="#" class="modal-trigger team_member_link" data-modal-id="steve">Steven Krone</a>
+              <a href="#" class="modal-trigger team_member_link" data-modal-id="steve" onClick={() => setStevenStatus(true)}>Steven Krone</a>
               <p class="team_member_title">Film Producer, Lawyer</p>
             </div>
             <div class="team_member_div">
@@ -594,7 +606,6 @@ const About = styled(motion.div)`
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   width: 100vw;
   height: 100vh;
-  z-index: 16;
   list-style: none;
   padding: 20px;
   display: flex;
@@ -602,6 +613,8 @@ const About = styled(motion.div)`
   justify-content: flex-start;
   text-align: start;
   z-index: 10;
+  overflow: scroll;
+  overflow-x: hidden;
 `
 const FAQ = styled(About)`
 `

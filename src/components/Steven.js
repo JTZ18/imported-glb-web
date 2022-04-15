@@ -1,12 +1,18 @@
 import React from 'react'
+import styled from 'styled-components'
+import CloseIcon from '@mui/icons-material/Close';
 
-function Steven() {
+function Steven({closeSteven}) {
   return (
+    <Wrapper>
+    <ContentWrap>
 <div class="modal-wrapper" id="steve">
   <section class="modal-window">
     <header class="modal-header">
       <h3>Steve</h3>
-      <button type="button" class="close-modal-button" aria-label="Close">X</button>
+      <CloseWrapper>
+            <CustomClose onClick={() => closeSteven(false)}/>
+        </CloseWrapper>
     </header>
     <p>
     Steve Krone is a film producer and also entertainment counsel at the law firm Mitchell, Silberberg & Knupp, where he represents entertainment, media and convergence companies, investors and financiers, and individual creative artists in connection with all aspects of the financing, development, production, acquisition, distribution, and other exploitation of motion pictures, television programming, video games, music, online and other content, and related products and services. Steve’s clients include the Michael Crichton estate, the Public Broadcasting Service, Kobalt Music, and international film finance and production companies China’s Starlight Culture Entertainment Group and India’s Cinestaan.
@@ -37,7 +43,49 @@ function Steven() {
     </p>
   </section>
 </div>
+</ContentWrap>
+</Wrapper>
   )
 }
 
 export default Steven
+
+const Wrapper = styled.div`
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  color: white;    
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 700vh;
+  list-style: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: start;
+  z-index: 30;
+  overflow: hidden;
+  overflow-x: hidden;
+`
+
+const ContentWrap = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 50px;
+  overflow: hidden;
+`
+
+const CustomClose = styled(CloseIcon)`
+  cursor: pointer;
+  z-index: 20;
+`
+const CloseWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`

@@ -63,7 +63,7 @@ export default function FullScene({ ...props }) {
       {/* <spotLight ref={spotlight3} position={[0.5,0.1,0.5]} intensity={2.5} penumbra={1} angle={0.35} color="#FEDD00"/> */}
       {/* <directionalLight ref={directionalLight} castShadow lookAt={[0,0,0]} intensity={1} position={[0.2,2,0.2]}/> */}
       {/* <rectAreaLight position={[-0.1,0.5,0.1]} width={1} height={1} intensity={50} lookAt={[0,0,0]} rotation={[0,Math.PI,0]}/> */}
-      <Html scale={0.01} rotation={[0, -3*Math.PI / 4 + 0.5, 0]} position={[-0.26,0.1,0.05]} transform zIndexRange={[2, 0]} occlude>
+      <Html scale={0.01} rotation={[0, -3*Math.PI / 4 + 0.5, 0]} position={[-0.26,0.1,0.05]} transform zIndexRange={[2, 0]} >
           <About 
           onClick={() => {
             console.log(props.aboutStatus)
@@ -74,7 +74,7 @@ export default function FullScene({ ...props }) {
           </About>
       </Html>
 
-      <Html scale={0.01} rotation={[0, -Math.PI / 2 +0.5, 0]} position={[-0.25,0.1,-0.01]} zIndexRange={[2, 0]} transform occlude>
+      <Html scale={0.01} rotation={[0, -Math.PI / 2 +0.5, 0]} position={[-0.25,0.1,-0.01]} zIndexRange={[2, 0]} transform >
           <FAQ 
           onClick={() => {
             console.log(props.faqStatus)
@@ -85,7 +85,7 @@ export default function FullScene({ ...props }) {
           </FAQ>
       </Html>
 
-      <Html scale={0.01} rotation={[0, -3*Math.PI / 4 +0.5, 0]} position={[-0.20,0.1,0.05]} zIndexRange={[2, 0]} transform occlude>
+      <Html scale={0.01} rotation={[0, -3*Math.PI / 4 +0.5, 0]} position={[-0.20,0.1,0.05]} zIndexRange={[2, 0]} transform >
           <Team 
           onClick={() => {
             console.log(props.teamStatus)
@@ -96,7 +96,7 @@ export default function FullScene({ ...props }) {
           </Team>
       </Html>
 
-      <Html scale={0.01} rotation={[0, -Math.PI / 2 +0.5, 0]} position={[-0.19,0.1,0.00]} zIndexRange={[2, 0]} transform occlude>
+      <Html scale={0.01} rotation={[0, -Math.PI / 2 +0.5, 0]} position={[-0.19,0.1,0.00]} zIndexRange={[2, 0]} transform >
           <Roadmap 
           onClick={() => {
             console.log(props.roadmapStatus)

@@ -1,12 +1,18 @@
 import React from 'react'
+import styled from 'styled-components'
+import CloseIcon from '@mui/icons-material/Close';
 
-function Todd() {
+function Todd({closeTodd}) {
   return (
+    <Wrapper>
+    <ContentWrap>
     <div class="modal-wrapper" id="todd">
     <section class="modal-window">
         <header class="modal-header">
         <h3>Todd</h3>
-        <button type="button" class="close-modal-button" aria-label="Close">X</button>
+        <CloseWrapper>
+            <CustomClose onClick={() => closeTodd(false)}/>
+        </CloseWrapper>
         </header>
         <p>Todd Ocvirk knew he wanted to be a filmmaker at a young age, once dazzling his 5th grade class with a Ray Harryhausen-inspired stop motion animation creature fest. Staying true to his dream, he went on to attend the USC Film School where he was honored to have Hong Kong action director John Woo as his mentor during his senior year.  As a student, Todd received accolades from professors and peers alike for his visually stylistic short films and rich character-driven screenplays.</p>
         <p>He graduated with a BFA in screenwriting before co-writing/co-directing his feature film debut, the independent shocker KOLOBOS.  He has been featured in Fangoria magazine, been a guest at the Fangoria Weekend of Horrors and his film has gone on to become a cult favorite among fans.  KOLOBOS has been screened at the prestigious Belgium Festival of the Fantastique, and in 2002, won awards for Best Picture, Best Directing and Best Make-Up at LA’s premiere genre festival Screamfest.  KOLOBOS recently received the Special Edition treatment from renowned cult film distributor Arrow Films in honor of its 20th anniversary.</p>
@@ -18,7 +24,49 @@ function Todd() {
 
     </section>
     </div>
+    </ContentWrap>
+</Wrapper>
   )
 }
 
 export default Todd
+
+const Wrapper = styled.div`
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  color: white;    
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  width: 100vw;
+  height: 700vh;
+  list-style: none;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: start;
+  z-index: 30;
+  overflow: hidden;
+  overflow-x: hidden;
+`
+
+const ContentWrap = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 50px;
+  overflow: hidden;
+`
+
+const CustomClose = styled(CloseIcon)`
+  cursor: pointer;
+  z-index: 20;
+`
+const CloseWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
+`
