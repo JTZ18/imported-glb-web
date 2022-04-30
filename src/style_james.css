@@ -54,3 +54,86 @@ h4 {
     color: var(--dark-blue);
     margin-top: 0px;
 }
+
+#about-window {
+    border-radius: 10px;
+    background: rgba(36, 27, 16, 0.6);
+    backdrop-filter: blur(4px);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+}
+
+#about-socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+#twitter {
+    width: 40px;
+    margin-right: 10px; 
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+
+#twitter :hover {
+    transform: scale(2);
+}
+
+#discord {
+    width: 40px;
+    margin-left: 10px; 
+    cursor: pointer;
+    transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+
+#discord :hover {
+    transform: scale(2);
+}
+
+#about-artwork {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: -300px;
+    padding: 50px;
+    max-width: 1500px;
+}
+
+@media only screen and (max-width: 1200px) {
+    #about-artwork {
+        display: none;
+    }
+
+
+
+
+  }
+
+@media only screen and (max-width: 800px) {
+#teaser-trailer {
+    display: none;
+}
+
+
+}

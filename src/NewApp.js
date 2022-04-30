@@ -192,20 +192,24 @@ export default function NewApp() {
           <CloseWrapper>
             <CustomClose onClick={() => setAboutStatus(false)}/>
           </CloseWrapper>
-          <div class="modal-wrapper" id="about">
-          <section class="modal-window">
-            <header class="modal-header">
-              <h3>About Tectonic Tales</h3>
-            </header>
-            <p>Tectonic Tales is proud to present Tectonic Blaze, a comedic action adventure following Theo, a gecko, and his trusty sidekick Sam, a frog, as they take on the precarious mission of delivering high value packages across a futuristic yet archaic landscape of cyberpunk technology, ancient alchemy and esoteric mysticism.</p>
-            <p>Conceived by Academy Award winning VFX artist Nickson Fong, and utilizing the team behind his award winning feature film directorial debut BASHIRA, Tectonic Blaze promises to push the boundaries of animation.  2D, 3D, stop motion and other styles of animation will give a unique, colorful and varied look.</p>
-            <p>The world of Tectonic Blaze is vast and eclectic, incorporating numerous cities, villages and hidden realms.  Think of the worlds of ZOOTOPIA and WRECK-IT-RALPH, or The Oasis in READY PLAYER ONE where a kaleidoscope of pop culture thrives and you’ll get an idea of what the world of Tectonic Blaze has to offer.  From an ancient Chinatown to a cyber future Tokyo, from a western cowboy world in a desert to a Polynesian archipelago in a lake, from a mystical world of Yokai to a forbidden dominion with unspeakable horrors, our heroes must traverse these wide ranging lands to complete their missions.</p>
-            <p>At the heart of this series is The Delivery Service, but this is no ordinary post office or FedEx.  This is the Special Forces of delivery.  Members are born into this secret society like ASSASSINS CREED and trained at a young age to become elite carriers.  The packages are high value assets where lives are at stake, sometimes even the fate of the world.  There are harsh consequences if these packages are not delivered on time and there is no room for error.  Like THE TRANSPORTER, what is contained in the packages is never revealed and no questions are asked.  The job is to make the delivery with no excuses.</p>
-            <p>One key piece of equipment for Delivery Service carriers is a high tech machine that transforms them into various costumes so they can blend in with whatever world they must journey through.  There is also a smaller version of this technology like a wrist watch, but its efficacy is less reliable.  Sometimes our heroes will be forced to improvise, resulting in comedic mishaps.  Think of Peter Sellers’ disguises in the PINK PANTHER films or Chevy Chase in FLETCH.</p>
-            <p>Driving the series are lovable best friends Theo and Sam as they struggle to gain respect as carriers among their peers.  No one takes them seriously, so they are always trying to prove themselves, often with disastrous and hilarious results.  Their world is populated with an eclectic array of animals, insects and mysterious cryptids, many of them with a strong sense of hip and popular fashion trends.</p>
-            <p>Tectonic Blaze will be packed with action, featuring different styles of martial arts.  Kung fu, karate, Muay Thai, boxing, MMA, even professional wrestling will all be on display.  Influences range from ENTER THE DRAGON, BLOODSPORT and FIGHT CLUB.  Fight sequences will combine grace with grit, but also a dose of humor in the vein of Jackie Chan and Sammo Hung.</p>
-            <p>We invite you to participate in our project as we shape Tectonic Blaze into a one of a kind, interactive creation.</p>
-          </section>
+          <div id="about">
+            <div class="modal-window" id="about-window">
+              <img style={{width: '50%'}} src="/img/main_logo.png" alt="logo" class="logo" id="logo"/>
+              <p style={{textAlign: "center", color:'#cab18a', width: '80%'}}>A comedic action adventure animated series, conceived by Academy Award winning artist Nickson Fong with his team that produced BASHIRA. At the heart of this series is the Secret Delivery Service Yamori-X (守宮X), where high valued assets are delivered with lives at stake. </p>
+              <br/>
+              <p style={{textAlign: "center", color:'#cab18a', width: '80%'}}>Driving the series are lovable best friends Theo and Sam, in a world that is vast and eclectic, incorporating ancient Chinatown to a cyber future Tokyo, as well as a mystical world of Yokai to a forbidden dominion. Our heroes must traverse these lands to complete their missions.</p>
+              <iframe id="teaser-trailer" width="560" height="315" src="https://www.youtube.com/embed/BKy1zUgK7bw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <p style={{textAlign: "center", color:'#cab18a', width: '80%'}} onClick={() => {window.open("https://www.youtube.com/embed/BKy1zUgK7bw")}}>Tectonic Tales Teaser</p>
+            </div>
+            <div id="about-socials">
+                <img src="/img/twitter.png" id="twitter" onClick={()=> window.open('https://twitter.com/TectonicTales', 'Twitter')}/>
+                <img src="/img/discord.png" id="discord" onClick={()=> window.open('https://discord.gg/veJRzndrFF', 'Discord')}/>
+            </div>
+            <div id="about-artwork">
+              <img src="/img/table.png" id="table" />
+              <img src="/img/movie.png" id="movie"/>
+            </div>
+
         </div>
       </About>
 
@@ -401,7 +405,7 @@ export default function NewApp() {
           <CloseWrapper>
                     <CustomClose onClick={() => setRoadmapStatus(false)}/>
           </CloseWrapper>
-          Roadmap Page.
+          
       </Roadmap>
       
     </>
@@ -601,7 +605,7 @@ const About = styled(motion.div)`
   top: 0%;
   left: 0%;
   color: white;    
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.5);
   backdrop-filter: blur(4px);
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
   width: 100vw;
