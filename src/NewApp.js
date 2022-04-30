@@ -26,6 +26,7 @@ import Nickson from './components/Nickson'
 import Steven from './components/Steven'
 import Todd from './components/Todd'
 import David from './components/David'
+import Accordion from './components/Accordion';
 
 
 
@@ -284,6 +285,7 @@ export default function NewApp() {
             <p>The blockchain technology has literally changed the way animation is produced and how the team can have ownership and rewards.</p>
           </section>
         </div>
+        <Accordion />
       </FAQ>
 
       <Team
