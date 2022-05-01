@@ -20,13 +20,13 @@ import ModelGecko from './components/Theo_noBG_08';
 import BowlStage from './components/Bg_bowl';
 import CloseIcon from '@mui/icons-material/Close';
 import styled from 'styled-components'
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import './style_james.css'
 import Nickson from './components/Nickson'
 import Steven from './components/Steven'
 import Todd from './components/Todd'
 import David from './components/David'
-import Accordion from './components/Accordion';
+import CustomizedAccordions from './components/CustomizedAccordions';
 
 
 
@@ -42,6 +42,7 @@ export default function NewApp() {
   const [stevenStatus, setStevenStatus] = useState(false)
   const [toddStatus, setToddStatus] = useState(false)
   const [davidStatus, setDavidStatus] = useState(false)
+  const [showAccordion, setShowAccordion] = useState(false)
 
   useEffect(() => {
 
@@ -220,7 +221,31 @@ export default function NewApp() {
           <CloseWrapper>
                     <CustomClose onClick={() => setFaqStatus(false)}/>
           </CloseWrapper>
-        <Accordion />
+        {/* <Accordion /> */}
+        <div id="accordion-container">
+          <CustomizedAccordions />
+        
+          { faqStatus && (
+            <>
+            <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1.5, duration:1}} >
+            <img src="/img/orange_gecko.png" id="orange_gecko" />
+            </motion.div>
+
+            <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:0.5, duration:1}} >
+            <img src="/img/red_gecko.png" id="red_gecko" />
+            </motion.div>
+
+            <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1, duration:1}} >
+            <img src="/img/playing_gecko.png" id="playing_gecko" />
+            </motion.div>
+            </>
+          )}
+          
+          
+         
+
+        </div>
+        
       </FAQ>
 
       <Team
@@ -342,6 +367,10 @@ export default function NewApp() {
           <CloseWrapper>
                     <CustomClose onClick={() => setRoadmapStatus(false)}/>
           </CloseWrapper>
+          <div id="roadmap-container">
+            <h1 id= "roadmap-title">Coming Soon!</h1>
+          </div>
+          
           
       </Roadmap>
       
