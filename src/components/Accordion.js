@@ -11,49 +11,53 @@ const AccordionSection = styled.div`
   justify-content: center;
   position: relative;
   height: 100vh;
-  background: #fff;
 `;
 
 const Container = styled.div`
   position: absolute;
-  top: 30%;
-  box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
+  top: 20px;
+  background: rgba(36, 27, 16, 0.6);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  max-width: 800px;
 `;
 
 const Wrap = styled.div`
-  background: #272727;
-  color: #fff;
+  color: #cab18a;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
 
   h1 {
     padding: 2rem;
     font-size: 2rem;
+    text-align: start;
+    font-weight: 700;
   }
 
   span {
     margin-right: 1.5rem;
+    margin-left: 1.5rem;
   }
 `;
 
 const Dropdown = styled.div`
-  background: #1c1c1c;
-  color: #00ffb9;
-  width: 100%;
-  height: 100px;
+  color: #cab18a;
+  max-width: 800px;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid #00ffb9;
-  border-top: 1px solid #00ffb9;
+  align-items: flex-start;
+  padding-left: 100px;
+  padding-right: 20px;
 
   p {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: 300;
   }
 `;
 
@@ -70,19 +74,26 @@ const Accordion = () => {
   };
 
   return (
-    <IconContext.Provider value={{ color: '#00FFB9', size: '25px' }}>
+    <IconContext.Provider value={{ color: '#cab18a', size: '25px' }}>
       <AccordionSection>
         <Container>
           {Data.map((item, index) => {
             return (
               <>
                 <Wrap onClick={() => toggle(index)} key={index}>
-                  <h1>{item.question}</h1>
                   <span>{clicked === index ? <FiMinus /> : <FiPlus />}</span>
+                  <h1>{item.question}</h1>
                 </Wrap>
                 {clicked === index ? (
                   <Dropdown>
-                    <p>{item.answer}</p>
+                    {item.answer.map((line,index) => {
+                      return (
+                        <>
+                          <p>{line}</p> <br/>
+                        </>
+                      )
+                    })}
+                    {/* <p>{item.answer}</p> */}
                   </Dropdown>
                 ) : null}
               </>
